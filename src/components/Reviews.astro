@@ -1,0 +1,72 @@
+---
+import { reviews } from "../data/reviews";
+---
+
+<section
+	class="static bg-[url('/puertorico.jpeg')] bg-fixed bg-no-repeat bg-center bg-cover"
+>
+	<div class="w-full h-full bg-gray-900 bg-opacity-40">
+		<h3 class="text-3xl md:text-5xl text-center pt-4">Reviews</h3>
+
+		<div class="relative flex justify-center items-center content-center">
+			<div
+				class="overflow-hidden flex flex-nowrap gap-1 p-8 justify-center items-center content-center w-[70rem]"
+				id="container-re"
+			>
+				{
+					reviews.map((review) => (
+						<div class="flex-none w-[90%] h-[320px] md:w-[250px] md:h:[260px] p-2 justify-center">
+							<img
+								class="object-cover h-full w-full transition-transform duration-500 ease-in-out hover:scale-125"
+								src={review.img}
+								alt="Imagen de la reseña"
+							/>
+						</div>
+					))
+				}
+				<button
+					class="absolute top-1/2 left-0 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full z-10 w-10 h-10 content-center"
+					id="btn-prev"
+				>
+					&lt;
+				</button>
+				<button
+					class="absolute top-1/2 right-0 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full z-10 w-10 h-10"
+					id="btn-next"
+				>
+					>
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// Obtener referencias a los elementos
+
+	const reviewsContainer = document.querySelector("#container-re");
+	const prevButton = document.querySelector("#btn-prev");
+	const nextButton = document.querySelector("#btn-next");
+	const images = reviewsContainer.querySelectorAll("img");
+
+	// Índice de la imagen actualmente mostrada
+	let currentIndex = 0;
+
+	// Función para actualizar la posición del scroll
+	function updateScroll(index) {
+		const imageWidth = images[0].clientWidth;
+		reviewsContainer.scrollLeft = imageWidth * index;
+	}
+
+	// Manejador de eventos para el botón "Anterior"
+	prevButton.addEventListener("click", () => {
+		currentIndex = (currentIndex - 1 + images.length) % images.length;
+		updateScroll(currentIndex);
+	});
+
+	// Manejador de eventos para el botón "Siguiente"
+	nextButton.addEventListener("click", () => {
+		currentIndex = (currentIndex + 1) % images.length;
+		updateScroll(currentIndex);
+	});
+</script>

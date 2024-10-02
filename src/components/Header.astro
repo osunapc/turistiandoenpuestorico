@@ -1,5 +1,7 @@
 ---
-import { services } from "../data/services";
+import { getCollection } from "astro:content";
+
+const services = await getCollection('services')
 ---
 
 <script>
@@ -105,7 +107,7 @@ import { services } from "../data/services";
                     return (
                       <li>
                         <a
-                          href={service.id}
+                          href={service.title}
                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           {service.title}

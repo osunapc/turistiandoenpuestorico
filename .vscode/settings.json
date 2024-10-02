@@ -1,5 +1,6 @@
 {
-    "workbench.editor.autoLockGroups": {
-        "workbench.input.interactive": true
-    }
+	"workbench.editor.autoLockGroups": {
+		"workbench.input.interactive": true
+	},
+	"cSpell.words": ["astro", "infose"]
 }

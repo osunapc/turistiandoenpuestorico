@@ -1,40 +1,46 @@
 ---
+import { getCollection, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import { services } from "../data/services";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+	const services = await getCollection("services");
 	return services.map((service) => ({
-		params: { service: service.id },
+		params: { id: service.slug },
+		props: { service },
 	}));
 }
 
-const { service } = Astro.params;
-const info = services.find((s) => s.id === service);
+const { service } = Astro.props;
+const { data } = service;
+const { image, title, infose } = data;
 
-if (!info) {
-	return Astro.redirect("/404");
-}
+const { Content } = await render(service);
 ---
 
-<Layout title={info.title}>
+<Layout title={title}>
 	<section class="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
 		<div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
 			<div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
-				<div class="shrink-0 max-w-md lg:max-w-lg mx-auto border">
-					<img class="w-full h-full object-cover" src={info.image} alt={info.title} />
+				<div class="shrink-0 max-w-md lg:max-w-lg mx-auto border h-80">
+					<img
+						transition:name="ser"
+						class="w-full h-full object-cover"
+						src={image}
+						alt={title}
+					/>
 				</div>
 
 				<div class="mt-6 sm:mt-8 lg:mt-0">
 					<h1
 						class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white"
 					>
-						{info.title}
+						{title}
 					</h1>
 					<div class="mt-4 sm:items-center sm:gap-4 flexflex-col">
 						<p
 							class="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white"
 						>
-							{info.infose}
+							{infose}
 						</p>
 
 						<div class="flex items-center gap-2 mt-2 sm:mt-0 border">
@@ -146,8 +152,8 @@ if (!info) {
 							BOOK NOW
 						</a>
 
-						<a
-							href="#"
+						<a target="_blank"
+							href="https://wa.me/17879813737?text=I%20am%20interested%20in%20a%20service%20on%20your%20website."
 							title=""
 							class="bg-green-500 text-white border mt-4 sm:mt-0 rounded-lg text-sm px-5 py-2.5 flex items-center justify-center"
 							role="button"
@@ -158,9 +164,11 @@ if (!info) {
 
 					<hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
-					<p class="mb-6 text-gray-500 dark:text-gray-400">
-						{info.description}
-					</p>
+					<div class="prose">
+						<p class="mb-6 text-gray-500 dark:text-gray-400">
+							<Content />
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>

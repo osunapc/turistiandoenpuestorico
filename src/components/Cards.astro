@@ -1,6 +1,8 @@
 ---
 import Card from "../components/Card.astro";
-import { services } from "../data/services";
+import { getCollection } from "astro:content";
+
+const services = await getCollection('services')
 ---
 
 <section>
@@ -11,18 +13,23 @@ import { services } from "../data/services";
     class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
   >
     {
-      services.map(({id, title, image, description, altText, info}) => (
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      services.map(service => {
+        const {slug, data } = service
+        const {image, title, infose} = data
+        
+        return (
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <Card
-            id={id}
+            id={slug}
             image={image}
             title={title}
-            infose={info}
-            description={description}
-            altText={altText}
+            infose={infose}
+                    
           />
         </div>
-      ))
+        )
+        
+      })
     }
   </div>
 </section>

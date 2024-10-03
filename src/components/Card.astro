@@ -13,7 +13,7 @@ const { id, title, image, infose } = Astro.props;
 	<div class="h-[200px] border-2">
 		<a href={`/${id}`}
 			><img
-				transition:name="ser"
+				transition:name={`img${id}`}
 				class="rounded-t-lg object-cover w-full h-full"
 				src={image}
 				alt={title}

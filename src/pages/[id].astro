@@ -11,9 +11,9 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const { data } = service;
+const { data, slug } = service;
 const { image, title, infose } = data;
-
+const id = slug;
 const { Content } = await render(service);
 ---
 
@@ -23,7 +23,7 @@ const { Content } = await render(service);
 			<div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
 				<div class="shrink-0 max-w-md lg:max-w-lg mx-auto border h-80">
 					<img
-						transition:name="ser"
+						transition:name={`img${id}`}
 						class="w-full h-full object-cover"
 						src={image}
 						alt={title}
@@ -152,7 +152,8 @@ const { Content } = await render(service);
 							BOOK NOW
 						</a>
 
-						<a target="_blank"
+						<a
+							target="_blank"
 							href="https://wa.me/17879813737?text=I%20am%20interested%20in%20a%20service%20on%20your%20website."
 							title=""
 							class="bg-green-500 text-white border mt-4 sm:mt-0 rounded-lg text-sm px-5 py-2.5 flex items-center justify-center"

@@ -9,14 +9,14 @@ Duration
 6 hours
 
 **Includes**
--Captain
--Mate
--Fuel costs
--Music stereo with bluetooth
--Snacks (hamburgers or hot dogs)
--Fruits
--Beers
--Ice mattress
--Water
--Floating mattress
--All prices are in US dollars
+- Captain
+- Mate
+- Fuel costs
+- Music stereo with bluetooth
+- Snacks (hamburgers or hot dogs)
+- Fruits
+- Beers
+- Ice mattress
+- Water
+- Floating mattress
+- All prices are in US dollars

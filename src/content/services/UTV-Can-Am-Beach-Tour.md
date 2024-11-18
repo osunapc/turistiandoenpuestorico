@@ -16,7 +16,7 @@ Our vehicles can accommodate up to 3 people, ensuring a private experience. Addi
 **Included**
 3 people per can am
 Tour Guide
-2 hours tour
+2 hours tour.
 
 **Requirements**
 

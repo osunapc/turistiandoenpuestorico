@@ -2,7 +2,15 @@
 	"workbench.editor.autoLockGroups": {
 		"workbench.input.interactive": true
 	},
-	"cSpell.words": ["astro", "astrojs", "icaco", "Icacos", "infose", "Zatara"],
+	"cSpell.words": [
+		"astro",
+		"astrojs",
+		"icaco",
+		"Icacos",
+		"infose",
+		"turisteando",
+		"Zatara"
+	],
 	"workbench.colorCustomizations": {
 		"activityBar.activeBackground": "#3399ff",
 		"activityBar.background": "#3399ff",

@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 const { data, slug } = service;
-const { image, title, infose } = data;
+const { image, title, infose, link } = data;
 const id = slug;
 const { Content } = await render(service);
 ---
@@ -43,7 +43,7 @@ const { Content } = await render(service);
 							{infose}
 						</p>
 
-						<div class="flex items-center gap-2 mt-2 sm:mt-0 border">
+						<div class="flex items-center gap-2 mt-2 sm:mt-0">
 							<div class="flex items-center gap-1">
 								<svg
 									class="w-4 h-4 text-yellow-300"
@@ -127,7 +127,7 @@ const { Content } = await render(service);
 
 					<div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
 						<a
-							href="#"
+							href={link}
 							title=""
 							class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
 							role="button"

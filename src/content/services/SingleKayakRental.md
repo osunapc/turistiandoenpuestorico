@@ -1,4 +1,5 @@
 ---
+order: 17
 image: "https://cdn.filestackcontent.com/BjmWzKlCRyvmbBSGtIkA/convert?cache=true&compress=true&quality=90&w=1000&fit=max"
 title:   Single Kayak Rental
 infose: San Juan, PR. Starting at $30 • 1-2 hour rentals

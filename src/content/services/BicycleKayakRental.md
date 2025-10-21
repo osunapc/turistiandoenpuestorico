@@ -1,4 +1,5 @@
 ---
+order: 19
 image: "https://cdn.filestackcontent.com/d1RPAKQqS1Wykrd3uN4j/convert?cache=true&compress=true&quality=90&w=1000&fit=max"
 title: Bicycle Kayak Rental
 infose: 1 hour • Single Kayak • Age 12+

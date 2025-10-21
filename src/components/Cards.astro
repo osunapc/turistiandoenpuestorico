@@ -2,7 +2,7 @@
 import Card from "../components/Card.astro";
 import { getCollection } from "astro:content";
 
-const services = await getCollection('services')
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section>

@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 15
 image: "https://cdn.filestackcontent.com/zWWSX7LlQtymdAY2dHPK/convert?cache=true&compress=true&quality=90&w=1000&fit=max"
 title:   Double Kayak Rental
 infose:  1 hour rentals
